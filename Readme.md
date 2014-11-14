@@ -1,8 +1,8 @@
-[![Build Status](https://circleci.com/gh/segmentio/integration-woopra.png)](https://circleci.com/gh/segmentio/integration-woopra)
+[![Build Status](https://circleci.com/gh/segmentio/integration-woopra/tree/master.png?style=badge)](https://circleci.com/gh/segmentio/integration-woopra/tree/master)
 
-# Woopra server-side integration.
+# integration-woopra
 
-Write me...
+Woopra server-side integration for Segment.
 
 
 ## License
