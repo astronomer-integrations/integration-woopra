@@ -22,8 +22,7 @@ describe('Woopra', function(){
       .name('Woopra')
       .endpoint('http://www.woopra.com/track')
       .ensure('settings.domain')
-      .channels(['server'])
-      .retries(2);
+      .channels(['server']);
   });
 
   describe('.validate()', function(){
