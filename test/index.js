@@ -68,7 +68,7 @@ describe('Woopra', function(){
           timestamp: track.timestamp.getTime().toString(),
           cookie: md5('userId'),
           host: settings.domain,
-          ce_name: 'event',
+          event: 'event',
           ce_revenue: '100',
           ce_prop: 'prop',
           ip: '127.0.0.1',
