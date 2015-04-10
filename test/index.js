@@ -47,6 +47,10 @@ describe('Woopra', function(){
       it('should map basic track', function(){
         test.maps('track-basic');
       });
+
+      it('should map nested track properties', function(){
+        test.maps('track-nested');
+      });
     });
   });
 
