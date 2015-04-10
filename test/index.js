@@ -22,7 +22,6 @@ describe('Woopra', function(){
       .name('Woopra')
       .endpoint('http://www.woopra.com/track')
       .ensure('settings.domain')
-      .ensure('message.email')
       .channels(['server']);
   });
 
@@ -79,6 +78,7 @@ describe('Woopra', function(){
           timestamp: track.timestamp.getTime().toString(),
           cookie: md5('userId'),
           host: settings.domain,
+          cv_id: 'userId',
           cv_email: 'name@example.com',
           ce_name: 'event',
           ce_revenue: '100',
@@ -103,6 +103,7 @@ describe('Woopra', function(){
         .set(settings)
         .identify(identify)
         .query({
+          cv_id: 'userId',
           cv_email: 'name@example.com',
           timestamp: identify.timestamp.getTime().toString(),
           cookie: md5('userId'),

@@ -14,6 +14,7 @@
     "ce_name": "my-event",
     "ce_property": true,
     "ce_revenue": 19.99,
+    "cv_id":"user-id",
     "cv_email": "name@example.com",
     "host": "ivolo.me",
     "cookie": "e35c1a36e525c2e4642c43b55246de30",
