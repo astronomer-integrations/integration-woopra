@@ -35,6 +35,7 @@
     "host": "ivolo.me",
     "cookie": "e35c1a36e525c2e4642c43b55246de30",
     "timeout": 30,
-    "timestamp": 1388534400000
+    "timestamp": 1388534400000,
+    "context": "{}"
   }
 }

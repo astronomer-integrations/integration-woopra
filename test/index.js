@@ -69,7 +69,7 @@ describe('Woopra', function(){
     it('should track successfully', function(done){
       var track = {
         properties: { revenue: 100, prop: 'prop', email: 'name@example.com' },
-        context: { ip: '127.0.0.1' },
+        context: { os: { name: 'iPhone OS', version: '8.1.3' }, ip: '127.0.0.1' },
         timestamp: new Date(),
         userId: 'userId',
         event: 'event'
@@ -81,6 +81,7 @@ describe('Woopra', function(){
         .query({
           timestamp: track.timestamp.getTime().toString(),
           cookie: md5('userId'),
+          context: JSON.stringify(track.context),
           host: settings.domain,
           cv_id: 'userId',
           cv_email: 'name@example.com',
@@ -98,7 +99,7 @@ describe('Woopra', function(){
     it('should identify successfully', function(done){
       var identify = {
         traits: { company: 'company', name: 'name', email: 'name@example.com' },
-        context: { ip: '127.0.0.1' },
+        context: { os: { name: 'iPhone OS', version: '8.1.3' }, ip: '127.0.0.1' },
         timestamp: new Date(),
         userId: 'userId'
       };
@@ -115,6 +116,7 @@ describe('Woopra', function(){
           cv_company: 'company',
           cv_name: 'name',
           ip: '127.0.0.1',
+          context: JSON.stringify(identify.context),
           timeout: '30'
         })
         .expects(200, done);
