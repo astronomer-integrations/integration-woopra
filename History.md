@@ -1,4 +1,10 @@
 
+1.0.6 / 2015-04-10
+==================
+
+  * eliminating ensure(message.email) and adding cv_id support
+  * only stringify arrays
+
 1.0.5 / 2014-12-08
 ==================
 

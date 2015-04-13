@@ -26,13 +26,24 @@ describe('Woopra', function(){
   });
 
   describe('.validate()', function(){
+    var msg;
+
+    beforeEach(function(){
+      msg = {
+        type: 'identify',
+        traits: {
+          email: 'jd@example.com'
+        }
+      };
+    });
+
     it('should be invalid if .domain is missing', function(){
       delete settings.domain;
-      test.invalid({}, settings);
+      test.invalid(msg, settings);
     });
 
     it('should be valid if settings are complete', function(){
-      test.valid({}, settings);
+      test.valid(msg, settings);
     });
   });
 
@@ -47,13 +58,17 @@ describe('Woopra', function(){
       it('should map basic track', function(){
         test.maps('track-basic');
       });
+
+      it('should map nested track properties', function(){
+        test.maps('track-nested');
+      });
     });
   });
 
   describe('.track()', function(){
     it('should track successfully', function(done){
       var track = {
-        properties: { revenue: 100, prop: 'prop' },
+        properties: { revenue: 100, prop: 'prop', email: 'name@example.com' },
         context: { ip: '127.0.0.1' },
         timestamp: new Date(),
         userId: 'userId',
@@ -64,10 +79,11 @@ describe('Woopra', function(){
         .set(settings)
         .track(track)
         .query({
-          id: track.userId,
           timestamp: track.timestamp.getTime().toString(),
           cookie: md5('userId'),
           host: settings.domain,
+          cv_id: 'userId',
+          cv_email: 'name@example.com',
           event: 'event',
           ce_revenue: '100',
           ce_prop: 'prop',
@@ -81,17 +97,18 @@ describe('Woopra', function(){
   describe('.identify()', function(){
     it('should identify successfully', function(done){
       var identify = {
-        traits: { company: 'company', name: 'name' },
+        traits: { company: 'company', name: 'name', email: 'name@example.com' },
         context: { ip: '127.0.0.1' },
         timestamp: new Date(),
-        userId: 'userId',
+        userId: 'userId'
       };
 
       test
         .set(settings)
         .identify(identify)
         .query({
-          id: identify.userId,
+          cv_id: 'userId',
+          cv_email: 'name@example.com',
           timestamp: identify.timestamp.getTime().toString(),
           cookie: md5('userId'),
           host: settings.domain,
