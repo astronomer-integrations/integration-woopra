@@ -25,7 +25,7 @@
   },
   "output": {
     "cv_id": "user-id",
-    "ce_name": "my-event",
+    "event": "my-event",
     "ce_property": true,
     "ce_revenue": 19.99,
     "ce_message": {
