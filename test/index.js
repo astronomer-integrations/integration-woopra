@@ -100,8 +100,8 @@ describe('Woopra', function(){
       var json = test.fixture('identify-basic');
 
       // we delete these prior to the request after the mapper
-      delete json.output.ua
-      delete json.output.lang
+      delete json.output.ua;
+      delete json.output.lang;
 
       test
         .set(settings)
@@ -113,15 +113,30 @@ describe('Woopra', function(){
     it('should override cookie if provided', function(done){
       var json = test.fixture('identify-cookie');
 
-      delete json.output.ua
-      delete json.output.lang
+      delete json.output.ua;
+      delete json.output.lang;
       
       test
         .set(settings)
         .identify(json.input)
         .query(json.output)
         .expects(200, done);
-    })
+    });
+
+    it('should strip cv_id if undefined/null', function(done){
+      var json = test.fixture('identify-cookie');
+
+      delete json.output.ua;
+      delete json.output.lang;
+      json.input.userId = null;
+      delete json.output.cv_id;
+
+      test
+        .set(settings)
+        .identify(json.input)
+        .query(json.output)
+        .expects(200, done);
+    });
   });
 });
 
