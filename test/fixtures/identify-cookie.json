@@ -10,10 +10,13 @@
     "context": {
       "ip": "0.0.0.0",
       "userAgent": "user-agent"
+    },
+    "integrations": {
+      "Woopra": { "cookie": "amyJ0K8meemG" }
     }
   },
   "output": {
-    "cookie": "e35c1a36e525c2e4642c43b55246de30",
+    "cookie": "amyJ0K8meemG",
     "cv_name": "john doe",
     "cv_id":"user-id",
     "cv_email":"name@example.com",
