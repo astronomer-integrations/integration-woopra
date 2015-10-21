@@ -1,4 +1,9 @@
 
+1.0.8 / 2015-10-21
+==================
+
+  * clean/add tests, refractor code, support woopra cookie properly
+
 1.0.7 / 2015-05-07
 ==================
 
