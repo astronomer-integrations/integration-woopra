@@ -52,6 +52,10 @@ describe('Woopra', function(){
       it('should map basic identify', function(){
         test.maps('identify-basic');
       });
+
+      it('should map identify with identify cookie', function(){
+        test.maps('identify-cookie');
+      });
     });
 
     describe('track', function(){
@@ -59,68 +63,65 @@ describe('Woopra', function(){
         test.maps('track-basic');
       });
 
-      it('should map nested track properties', function(){
+      it('should map track nested', function(){
         test.maps('track-nested');
       });
+
+      it('should map track-cookie', function(){
+        test.maps('track-cookie');
+      })
     });
   });
 
   describe('.track()', function(){
     it('should track successfully', function(done){
-      var track = {
-        properties: { revenue: 100, prop: 'prop', email: 'name@example.com' },
-        context: { os: { name: 'iPhone OS', version: '8.1.3' }, ip: '127.0.0.1' },
-        timestamp: new Date(),
-        userId: 'userId',
-        event: 'event'
-      };
+      var json = test.fixture('track-basic');
 
       test
         .set(settings)
-        .track(track)
-        .query({
-          timestamp: track.timestamp.getTime().toString(),
-          cookie: md5('userId'),
-          context: JSON.stringify(track.context),
-          host: settings.domain,
-          cv_id: 'userId',
-          cv_email: 'name@example.com',
-          event: 'event',
-          ce_revenue: '100',
-          ce_prop: 'prop',
-          ip: '127.0.0.1',
-          timeout: '30'
-        })
+        .track(json.input)
+        .query(json.output)
         .expects(200, done);
     });
+
+    it('should override cookie if provided', function(done){
+      var json = test.fixture('track-cookie');
+
+      test
+        .set(settings)
+        .track(json.input)
+        .query(json.output)
+        .expects(200, done);
+    })
   });
 
   describe('.identify()', function(){
     it('should identify successfully', function(done){
-      var identify = {
-        traits: { company: 'company', name: 'name', email: 'name@example.com' },
-        context: { os: { name: 'iPhone OS', version: '8.1.3' }, ip: '127.0.0.1' },
-        timestamp: new Date(),
-        userId: 'userId'
-      };
+      var json = test.fixture('identify-basic');
+
+      // we delete these prior to the request after the mapper
+      delete json.output.ua
+      delete json.output.lang
 
       test
         .set(settings)
-        .identify(identify)
-        .query({
-          cv_id: 'userId',
-          cv_email: 'name@example.com',
-          timestamp: identify.timestamp.getTime().toString(),
-          cookie: md5('userId'),
-          host: settings.domain,
-          cv_company: 'company',
-          cv_name: 'name',
-          ip: '127.0.0.1',
-          context: JSON.stringify(identify.context),
-          timeout: '30'
-        })
+        .identify(json.input)
+        .query(json.output)
         .expects(200, done);
     });
+
+    it('should override cookie if provided', function(done){
+      var json = test.fixture('identify-cookie');
+
+      delete json.output.ua
+      delete json.output.lang
+      
+      test
+        .set(settings)
+        .identify(json.input)
+        .query(json.output)
+        .expects(200, done);
+    })
   });
 });
 
