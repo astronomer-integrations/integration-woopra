@@ -53,6 +53,10 @@ describe('Woopra', function(){
         test.maps('identify-basic');
       });
 
+      it('should map identify nested', function () {
+        test.maps('identify-nested');
+      });
+
       it('should map identify with identify cookie', function(){
         test.maps('identify-cookie');
       });
@@ -115,7 +119,7 @@ describe('Woopra', function(){
 
       delete json.output.ua;
       delete json.output.lang;
-      
+
       test
         .set(settings)
         .identify(json.input)
