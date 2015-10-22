@@ -1,4 +1,10 @@
 
+1.0.10 / 2015-10-22
+===================
+
+  * Serializes nested objects/arrays in identify() calls as well, plus new tests.
+  * Fixes nested array and object serialization for woopra system reqs, and updates tests.
+
 1.0.9 / 2015-10-21
 ==================
 
