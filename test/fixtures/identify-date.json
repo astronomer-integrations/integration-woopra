@@ -1,0 +1,25 @@
+{
+  "input": {
+    "type": "identify",
+    "userId": "user-id",
+    "timestamp": "2014",
+    "traits": {
+      "testdate": "2015-11-04T09:20:22Z"
+    },
+    "context": {
+      "ip": "0.0.0.0",
+      "userAgent": "user-agent"
+    }
+  },
+  "output": {
+    "cookie": "e35c1a36e525c2e4642c43b55246de30",
+    "cv_id":"user-id",
+    "cv_testdate":"1446628822000",
+    "host": "ivolo.me",
+    "ip": "0.0.0.0",
+    "timeout": "30000",
+    "context": "{\"ip\":\"0.0.0.0\",\"userAgent\":\"user-agent\"}",
+    "timestamp": "1388534400000",
+    "ua": "user-agent"
+  }
+}

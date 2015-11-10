@@ -53,12 +53,16 @@ describe('Woopra', function(){
         test.maps('identify-basic');
       });
 
-      it('should map identify nested', function () {
+      it('should map identify nested', function(){
         test.maps('identify-nested');
       });
 
       it('should map identify with identify cookie', function(){
         test.maps('identify-cookie');
+      });
+
+      it('should convert trait dates to unix timestamp in milliseconds', function(){
+        test.maps('identify-date');
       });
     });
 
