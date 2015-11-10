@@ -1,4 +1,9 @@
 
+1.0.11 / 2015-11-10
+===================
+
+  * Update timestamp to be a normal unix timestamp Also fixes a bunch of the lint warnings related to bad whitespace
+
 1.0.10 / 2015-10-22
 ===================
 
