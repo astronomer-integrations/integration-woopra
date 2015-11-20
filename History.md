@@ -1,4 +1,9 @@
 
+1.0.12 / 2015-11-20
+===================
+
+  * Fixes SS crash when attempting to call toString() on null property value.
+
 1.0.11 / 2015-11-10
 ===================
 
