@@ -2,7 +2,7 @@
   "input": {
     "type": "identify",
     "userId": "user-id",
-    "timestamp": "2014",
+    "timestamp": "2016",
     "traits": {
       "name": "john doe",
       "email":"name@example.com"
@@ -21,7 +21,7 @@
     "ip": "0.0.0.0",
     "timeout": "30000",
     "context": "{\"ip\":\"0.0.0.0\",\"userAgent\":\"user-agent\"}",
-    "timestamp": "1388534400000",
+    "timestamp": "1451606400000",
     "ua": "user-agent"
   }
 }
