@@ -15,13 +15,14 @@
   "dependencies": {
     "extend": "^2.0.0",
     "is": "^3.1.0",
+    "isostring": "0.0.1",
     "qs": "^5.2.0",
     "reject": "0.0.1",
-    "segmentio-integration": "^3.0.5"
+    "segmentio-integration": "^3.0.5",
+    "unix-time": "^1.0.1"
   },
   "devDependencies": {
     "extend": "^2.0.0",
-    "isostring": "0.0.1",
     "istanbul": "0.x",
     "jscs": "1.x",
     "merge-util": "^0.1.0",
@@ -30,7 +31,6 @@
     "segmentio-facade": "2.x",
     "segmentio-integration-tester": "1.x",
     "should": "4.x",
-    "uid": "0.0.2",
-    "unix-time": "1.x"
+    "uid": "0.0.2"
   }
 }
